@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 
@@ -34,7 +34,7 @@ const CustomerRoute = ({ children }) => {
 function App() {
   return (
     <AuthProvider>
-      <HashRouter>
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -55,7 +55,7 @@ function App() {
 
         </Routes>
         <Footer />
-      </HashRouter>
+      </BrowserRouter>
     </AuthProvider>
   );
 }
