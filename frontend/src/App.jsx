@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
+import { Analytics } from "@vercel/analytics/next"
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -35,6 +36,7 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <Analytics />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -44,12 +46,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkout" element={<Checkout />} />
-          
+
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           <Route path="/admin/products" element={<AdminRoute><AdminProducts /></AdminRoute>} />
           <Route path="/admin/orders" element={<AdminRoute><AdminOrders /></AdminRoute>} />
-          
+
           {/* Customer Dashboard Route */}
           <Route path="/:username" element={<CustomerRoute><CustomerDashboard /></CustomerRoute>} />
 
